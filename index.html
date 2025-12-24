@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Management System</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="header-controls">
+          <div class="search-container">
+            <input
+              type="text"
+              id="searchJobs"
+              placeholder="Search jobs..."
+              class="search-input"
+            />
+          </div>
+          <div class="filter-section">
+            <button class="filter-button" id="filterButton">
+              <span class="filter-icon">▼</span> Filter State
+            </button>
+            <div id="filterDropdown" class="filter-dropdown hidden">
+              <!-- Job View Filters -->
+              <div id="jobFilters">
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    value="Queued Pooled"
+                    class="job-filter-checkbox"
+                    checked
+                  />
+                  Queued Pooled
+                </label>
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    value="Selected"
+                    class="job-filter-checkbox"
+                    checked
+                  />
+                  Selected
+                </label>
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    value="Executing"
+                    class="job-filter-checkbox"
+                    checked
+                  />
+                  Executing
+                </label>
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    value="Completed"
+                    class="job-filter-checkbox"
+                    checked
+                  />
+                  Completed
+                </label>
+              </div>
+              <!-- Material View Filters -->
+              <div id="materialFilters" class="hidden">
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    value="NEEDS PROCESSING"
+                    class="material-filter-checkbox"
+                    checked
+                  />
+                  NEEDS PROCESSING
+                </label>
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    value="IN PROCESS"
+                    class="material-filter-checkbox"
+                    checked
+                  />
+                  IN PROCESS
+                </label>
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    value="PROCESSED"
+                    class="material-filter-checkbox"
+                    checked
+                  />
+                  PROCESSED
+                </label>
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    value="SKIPPED"
+                    class="material-filter-checkbox"
+                    checked
+                  />
+                  SKIPPED
+                </label>
+              </div>
+            </div>
+          </div>
+          <button class="view-toggle" id="viewToggle">
+            Switch to Material View
+          </button>
+        </div>
+      </header>
+
+      <div class="main-content">
+        <main>
+          <div id="table-container" class="table-container">
+            <table id="jobsTable">
+              <thead>
+                <tr>
+                  <th class="expand-col"></th>
+                  <th>ID</th>
+                  <th>State</th>
+                  <th>Start Method</th>
+                  <th>Control Order</th>
+                  <th>Recipe Id</th>
+                  <th>Carrier (s)</th>
+                  <th class="checkbox-col"></th>
+                </tr>
+              </thead>
+              <tbody id="jobsTableBody"></tbody>
+            </table>
+          </div>
+
+          <!-- Create Process Job Form View -->
+          <div id="createJobView" class="create-job-view hidden">
+            <div class="form-header">
+              <button class="back-button" id="backButton">
+                <span>←</span>
+              </button>
+              <h2>Create Process Job</h2>
+            </div>
+
+            <div class="form-content">
+              <div class="form-row">
+                <div class="form-field">
+                  <label>Process Job ID:</label>
+                  <input type="text" id="processJobId" placeholder="Enter ID" />
+                </div>
+              </div>
+
+              <div class="form-section">
+                <label class="section-label">Slot ID(s):</label>
+                <div class="slot-tables-container" id="slotTablesContainer">
+                  <!-- Slot tables will be dynamically added here -->
+                </div>
+                <button class="add-button" id="addSlotTableBtn" type="button">
+                  + Add
+                </button>
+              </div>
+
+              <div class="form-section">
+                <label class="section-label">Start method:</label>
+                <div class="checkbox-group">
+                  <label
+                    ><input type="checkbox" name="startMethod" value="Manual" />
+                    Manual</label
+                  >
+                  <label
+                    ><input type="checkbox" name="startMethod" value="Auto" />
+                    Auto</label
+                  >
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label>Recipe:</label>
+                  <select id="recipe">
+                    <option value="">Select...</option>
+                    <option value="Recipe 1">Recipe 1</option>
+                    <option value="Recipe 2">Recipe 2</option>
+                    <option value="Recipe 3">Recipe 3</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <label class="section-label">Recipe variable tuning:</label>
+                <div class="variable-tuning" id="variableTuning">
+                  <div class="tuning-row">
+                    <select class="tuning-select">
+                      <option value="">Select name...</option>
+                      <option value="Variable 1">Variable 1</option>
+                      <option value="Variable 2">Variable 2</option>
+                      <option value="Variable 3">Variable 3</option>
+                    </select>
+                    <span>:</span>
+                    <input
+                      type="text"
+                      placeholder="value"
+                      class="tuning-input"
+                    />
+                  </div>
+                  <button class="add-button" id="addTuningBtn">+ Add</button>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label>Pause event(s):</label>
+                  <select id="pauseEvents">
+                    <option value="">Select...</option>
+                    <option value="Event 1">Event 1</option>
+                    <option value="Event 2">Event 2</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-actions-bottom">
+                <button class="btn btn-primary" id="createJobBtn">
+                  Create
+                </button>
+                <button class="btn btn-secondary" id="cancelJobBtn">
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Create Control Job Form View -->
+          <div id="createControlJobView" class="create-job-view hidden">
+            <div class="form-header">
+              <button class="back-button" id="backButtonControl">
+                <span>←</span>
+              </button>
+              <h2>Create Control Job</h2>
+            </div>
+
+            <div class="form-content">
+              <div class="form-row">
+                <div class="form-field">
+                  <label>Control Job ID:</label>
+                  <input type="text" id="controlJobId" placeholder="Enter ID" />
+                </div>
+                <div class="form-field">
+                  <label>Process Job(s):</label>
+                  <select id="processJobs" multiple size="5">
+                    <!-- Options will be populated dynamically -->
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label>Carrier (s):</label>
+                  <div id="carrierDisplay" class="carrier-display">-</div>
+                </div>
+                <div class="form-field">
+                  <label>Data Collection Plan:</label>
+                  <input type="text" id="dataCollectionPlan" placeholder="" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label>Mtl Out Spec Mode:</label>
+                  <div class="checkbox-group">
+                    <label
+                      ><input
+                        type="checkbox"
+                        name="mtlOutSpecMode"
+                        value="Slot Integrity"
+                      />
+                      Slot Integrity</label
+                    >
+                    <label
+                      ><input
+                        type="checkbox"
+                        name="mtlOutSpecMode"
+                        value="Material Redirection"
+                        checked
+                      />
+                      Material Redirection</label
+                    >
+                  </div>
+                  <div class="mtl-spec-table">
+                    <div class="mtl-spec-row">
+                      <div class="mtl-spec-column">
+                        <label class="mtl-label">src</label>
+                        <select class="mtl-select">
+                          <option>vslot 1</option>
+                          <option>vslot 2</option>
+                        </select>
+                        <select class="mtl-select">
+                          <option>vslot 2</option>
+                          <option>vslot 1</option>
+                        </select>
+                      </div>
+                      <div class="mtl-spec-column">
+                        <label class="mtl-label">des</label>
+                        <select class="mtl-select">
+                          <option>vslot 1</option>
+                          <option>vslot 2</option>
+                        </select>
+                        <select class="mtl-select">
+                          <option>vslot 2</option>
+                          <option>vslot 1</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-field-right">
+                  <div class="form-field">
+                    <label>Pause event(s):</label>
+                    <select id="pauseEventsControl">
+                      <option value="">Select...</option>
+                      <option value="Event 1">Event 1</option>
+                      <option value="Event 2">Event 2</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label>Processing Order Mgmt:</label>
+                    <select id="processingOrderMgmt">
+                      <option value="">Select...</option>
+                      <option value="LIST">LIST</option>
+                      <option value="ARRIVAL">ARRIVAL</option>
+                      <option value="OPTIMIZE">OPTIMIZE</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label>Start Method:</label>
+                    <div class="checkbox-group">
+                      <label
+                        ><input
+                          type="checkbox"
+                          name="controlStartMethod"
+                          value="Auto"
+                        />
+                        Auto</label
+                      >
+                      <label
+                        ><input
+                          type="checkbox"
+                          name="controlStartMethod"
+                          value="User Start"
+                        />
+                        User Start</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-actions-bottom">
+                <button class="btn btn-primary" id="createControlBtn">
+                  Create
+                </button>
+                <button class="btn btn-secondary" id="cancelControlBtn">
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <aside class="sidebar">
+          <div class="action-buttons">
+            <button class="btn btn-outline" id="createProcessJob">
+              Create<br />Process Job
+            </button>
+            <button class="btn btn-outline" id="createControlJob">
+              Create<br />Control Job
+            </button>
+            <button class="btn btn-outline" id="deleteJobs">
+              <span class="btn-icon">🗑</span> Delete
+            </button>
+            <button class="btn btn-outline" id="editJobs">
+              <span class="btn-icon">✏️</span> Edit
+            </button>
+          </div>
+        </aside>
+      </div>
+
+      <div class="bottom-nav">
+        <button class="nav-button active">
+          <span class="nav-icon">☰</span> Jobs
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
