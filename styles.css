@@ -581,6 +581,11 @@ input[type="checkbox"] {
   font-weight: 500;
 }
 
+.required {
+  color: red;
+  margin-left: 2px;
+}
+
 .form-field input,
 .form-field select {
   padding: 8px;
@@ -593,6 +598,64 @@ input[type="checkbox"] {
   height: auto;
   min-height: 120px;
   padding: 4px;
+}
+
+.custom-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.dropdown-display {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-display:hover {
+  border-color: #999;
+}
+
+.dropdown-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-options.open {
+  display: block;
+}
+
+.dropdown-option {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.dropdown-option:hover {
+  background: #f5f5f5;
+}
+
+.dropdown-option input[type="checkbox"] {
+  cursor: pointer;
 }
 
 .form-section {

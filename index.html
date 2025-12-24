@@ -141,13 +141,15 @@
             <div class="form-content">
               <div class="form-row">
                 <div class="form-field">
-                  <label>Process Job ID:</label>
+                  <label>Process Job ID:<span class="required">*</span></label>
                   <input type="text" id="processJobId" placeholder="Enter ID" />
                 </div>
               </div>
 
               <div class="form-section">
-                <label class="section-label">Slot ID(s):</label>
+                <label class="section-label"
+                  >Slot ID(s):<span class="required">*</span></label
+                >
                 <div class="slot-tables-container" id="slotTablesContainer">
                   <!-- Slot tables will be dynamically added here -->
                 </div>
@@ -172,7 +174,7 @@
 
               <div class="form-row">
                 <div class="form-field">
-                  <label>Recipe:</label>
+                  <label>Recipe:<span class="required">*</span></label>
                   <select id="recipe">
                     <option value="">Select...</option>
                     <option value="Recipe 1">Recipe 1</option>
@@ -237,20 +239,25 @@
             <div class="form-content">
               <div class="form-row">
                 <div class="form-field">
-                  <label>Control Job ID:</label>
+                  <label>Control Job ID:<span class="required">*</span></label>
                   <input type="text" id="controlJobId" placeholder="Enter ID" />
                 </div>
                 <div class="form-field">
-                  <label>Process Job(s):</label>
-                  <select id="processJobs" multiple size="5">
-                    <!-- Options will be populated dynamically -->
-                  </select>
+                  <label>Process Job(s):<span class="required">*</span></label>
+                  <div class="custom-dropdown">
+                    <div class="dropdown-display" id="processJobsDisplay">
+                      Select process jobs...
+                    </div>
+                    <div class="dropdown-options" id="processJobsOptions">
+                      <!-- Options will be populated dynamically -->
+                    </div>
+                  </div>
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-field">
-                  <label>Carrier (s):</label>
+                  <label>Carrier (s):<span class="required">*</span></label>
                   <div id="carrierDisplay" class="carrier-display">-</div>
                 </div>
                 <div class="form-field">
@@ -261,51 +268,11 @@
 
               <div class="form-row">
                 <div class="form-field">
-                  <label>Mtl Out Spec Mode:</label>
-                  <div class="checkbox-group">
-                    <label
-                      ><input
-                        type="checkbox"
-                        name="mtlOutSpecMode"
-                        value="Slot Integrity"
-                      />
-                      Slot Integrity</label
-                    >
-                    <label
-                      ><input
-                        type="checkbox"
-                        name="mtlOutSpecMode"
-                        value="Material Redirection"
-                        checked
-                      />
-                      Material Redirection</label
-                    >
-                  </div>
-                  <div class="mtl-spec-table">
-                    <div class="mtl-spec-row">
-                      <div class="mtl-spec-column">
-                        <label class="mtl-label">src</label>
-                        <select class="mtl-select">
-                          <option>vslot 1</option>
-                          <option>vslot 2</option>
-                        </select>
-                        <select class="mtl-select">
-                          <option>vslot 2</option>
-                          <option>vslot 1</option>
-                        </select>
-                      </div>
-                      <div class="mtl-spec-column">
-                        <label class="mtl-label">des</label>
-                        <select class="mtl-select">
-                          <option>vslot 1</option>
-                          <option>vslot 2</option>
-                        </select>
-                        <select class="mtl-select">
-                          <option>vslot 2</option>
-                          <option>vslot 1</option>
-                        </select>
-                      </div>
-                    </div>
+                  <label
+                    >Material redirection:<span class="required">*</span></label
+                  >
+                  <div class="mtl-spec-table" id="materialRedirectionTable">
+                    <!-- Will be populated dynamically -->
                   </div>
                 </div>
                 <div class="form-field-right">
@@ -318,7 +285,11 @@
                     </select>
                   </div>
                   <div class="form-field">
-                    <label>Processing Order Mgmt:</label>
+                    <label
+                      >Processing Order Mgmt:<span class="required"
+                        >*</span
+                      ></label
+                    >
                     <select id="processingOrderMgmt">
                       <option value="">Select...</option>
                       <option value="LIST">LIST</option>
@@ -327,7 +298,7 @@
                     </select>
                   </div>
                   <div class="form-field">
-                    <label>Start Method:</label>
+                    <label>Start Method:<span class="required">*</span></label>
                     <div class="checkbox-group">
                       <label
                         ><input

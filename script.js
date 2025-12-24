@@ -63,168 +63,168 @@ let materials = [
         id: "Slot 2",
         substrateId: "-",
         recipe: "Recipe 2, Recipe 1",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "PJ2, PJ1",
       },
       {
         id: "Slot 3",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 4",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 5",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 6",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 7",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 8",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 9",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 10",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 11",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 12",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 13",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 14",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 15",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 16",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 17",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 18",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 19",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 20",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 21",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 22",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 23",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 24",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 25",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
     ],
@@ -241,175 +241,175 @@ let materials = [
         id: "Slot 1",
         substrateId: "-",
         recipe: "Recipe 1",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "PJ1",
       },
       {
         id: "Slot 2",
         substrateId: "-",
         recipe: "Recipe 1",
-        substrateState: "SKIPPED",
+        substrateState: "NEEDS PROCESSING",
         jobs: "PJ1",
       },
       {
         id: "Slot 3",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 4",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 5",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 6",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 7",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 8",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 9",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 10",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 11",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 12",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 13",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 14",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 15",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 16",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 17",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 18",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 19",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 20",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 21",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 22",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 23",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 24",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 25",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
     ],
@@ -426,175 +426,175 @@ let materials = [
         id: "Slot 1",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 2",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 3",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 4",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 5",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 6",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 7",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 8",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 9",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 10",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 11",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 12",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 13",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 14",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 15",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 16",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 17",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 18",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 19",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 20",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 21",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 22",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 23",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 24",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
       {
         id: "Slot 25",
         substrateId: "-",
         recipe: "-",
-        substrateState: "-",
+        substrateState: "NEEDS PROCESSING",
         jobs: "",
       },
     ],
@@ -756,16 +756,26 @@ function initializeEventListeners() {
   document
     .getElementById("createControlBtn")
     .addEventListener("click", function () {
-      // Handle control job creation
-      hideCreateControlJobView();
+      createControlJob();
     });
 
-  // Process Jobs selection change handler
-  document
-    .getElementById("processJobs")
-    .addEventListener("change", function () {
-      updateCarrierDisplay();
-    });
+  // Process Jobs dropdown handler
+  const processJobsDisplay = document.getElementById("processJobsDisplay");
+  const processJobsOptions = document.getElementById("processJobsOptions");
+
+  processJobsDisplay.addEventListener("click", function (e) {
+    e.stopPropagation();
+    processJobsOptions.classList.toggle("open");
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener("click", function () {
+    processJobsOptions.classList.remove("open");
+  });
+
+  processJobsOptions.addEventListener("click", function (e) {
+    e.stopPropagation();
+  });
 
   // Control Start method checkbox handling
   const controlStartMethodCheckboxes = document.querySelectorAll(
@@ -847,9 +857,32 @@ function renderJobView() {
 
   tbody.innerHTML = "";
 
+  // Sort jobs so parents appear before their children
+  const sortedJobs = [...filteredJobs].sort((a, b) => {
+    // If both have no parent, maintain original order
+    if (!a.parentId && !b.parentId) return 0;
+
+    // If a has no parent but b does, a comes first
+    if (!a.parentId && b.parentId) return -1;
+
+    // If b has no parent but a does, b comes first
+    if (a.parentId && !b.parentId) return 1;
+
+    // If both have parents, group by parent
+    if (a.parentId !== b.parentId) {
+      // Find parent indices in original array
+      const aParentIndex = filteredJobs.findIndex((j) => j.id === a.parentId);
+      const bParentIndex = filteredJobs.findIndex((j) => j.id === b.parentId);
+      return aParentIndex - bParentIndex;
+    }
+
+    // Same parent, maintain order
+    return 0;
+  });
+
   // Filter to show only visible jobs (considering parent expansion)
-  const visibleJobs = filteredJobs.filter((job) =>
-    shouldShowJob(job, filteredJobs)
+  const visibleJobs = sortedJobs.filter((job) =>
+    shouldShowJob(job, sortedJobs)
   );
 
   visibleJobs.forEach((job) => {
@@ -1093,22 +1126,39 @@ function createProcessJob() {
   // Get recipe
   const recipe = document.getElementById("recipe").value || "-";
 
-  // Get carrier IDs from slot tables
+  // Get carrier IDs and slot information from slot tables
   const carrierInputs = document.querySelectorAll(".carrier-id-input");
   const carriers = Array.from(carrierInputs)
     .map((input) => input.value.trim())
     .filter((value) => value !== "")
     .join(", ");
 
+  // Collect slot data
+  const slots = [];
+  document.querySelectorAll(".slot-id-table").forEach((table) => {
+    const carrierId = table.querySelector(".carrier-id-input").value.trim();
+    const checkboxes = table.querySelectorAll(".slot-checkbox:checked");
+    checkboxes.forEach((cb) => {
+      const row = cb.closest(".slot-table-row");
+      const slotNumber = row
+        .querySelector(".slot-table-cell:nth-child(2)")
+        .textContent.trim();
+      if (carrierId) {
+        slots.push({ carrierId, slotNumber });
+      }
+    });
+  });
+
   // Create new job object
   const newJob = {
     id: processJobId,
-    state: "Selected",
+    state: "Queued Pooled",
     startMethod: startMethod,
     controlOrder: "",
     recipeId: recipe,
     carrier: carriers || "-",
     parentId: null,
+    slots: slots,
   };
 
   // Add to jobs array
@@ -1129,9 +1179,6 @@ function showCreateControlJobView(preSelectedJobs = []) {
   document.getElementById("createJobView").classList.add("hidden");
   document.getElementById("table-container").style.display = "none";
 
-  // Populate process jobs dropdown with jobs that have no parent
-  populateProcessJobsDropdown(preSelectedJobs);
-
   // Reset form
   document.getElementById("controlJobId").value = "";
   document.getElementById("dataCollectionPlan").value = "";
@@ -1141,67 +1188,85 @@ function showCreateControlJobView(preSelectedJobs = []) {
   document.getElementById("pauseEventsControl").value = "";
   document.getElementById("processingOrderMgmt").value = "";
 
-  // Pre-select jobs if provided
-  const processJobsSelect = document.getElementById("processJobs");
-  if (preSelectedJobs.length > 0) {
-    Array.from(processJobsSelect.options).forEach((option) => {
-      option.selected = preSelectedJobs.includes(option.value);
-    });
-    // Update carrier display for pre-selected jobs
-    updateCarrierDisplay();
-  } else {
-    processJobsSelect.value = "";
-    document.getElementById("carrierDisplay").textContent = "-";
-  }
+  // Populate process jobs dropdown
+  populateProcessJobsDropdown(preSelectedJobs);
+
+  // Update material redirection table
+  updateMaterialRedirection();
 }
 
 function populateProcessJobsDropdown(preSelectedJobs = []) {
-  const processJobsSelect = document.getElementById("processJobs");
+  const optionsContainer = document.getElementById("processJobsOptions");
+  optionsContainer.innerHTML = "";
 
-  // Clear existing options
-  processJobsSelect.innerHTML = "";
+  // Get available process jobs (no parent)
+  const availableJobs = jobs.filter(
+    (job) => job.id.startsWith("PJ-") && !job.parentId
+  );
 
-  // If pre-selected jobs are provided, show only those
-  // Otherwise, show all available process jobs
-  let availableProcessJobs;
-  if (preSelectedJobs.length > 0) {
-    availableProcessJobs = jobs.filter(
-      (job) =>
-        preSelectedJobs.includes(job.id) &&
-        job.id.startsWith("PJ-") &&
-        !job.parentId
-    );
-  } else {
-    availableProcessJobs = jobs.filter(
-      (job) => job.id.startsWith("PJ-") && !job.parentId
-    );
-  }
+  availableJobs.forEach((job) => {
+    const optionDiv = document.createElement("div");
+    optionDiv.className = "dropdown-option";
 
-  // Add options for each available process job
-  availableProcessJobs.forEach((job) => {
-    const option = document.createElement("option");
-    option.value = job.id;
-    option.textContent = job.id;
-    processJobsSelect.appendChild(option);
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.id = `pj-checkbox-${job.id}`;
+    checkbox.value = job.id;
+    checkbox.checked = preSelectedJobs.includes(job.id);
+
+    checkbox.addEventListener("change", function () {
+      updateProcessJobsDisplay();
+      updateCarrierDisplay();
+      updateMaterialRedirection();
+    });
+
+    const label = document.createElement("label");
+    label.htmlFor = `pj-checkbox-${job.id}`;
+    label.textContent = job.id;
+    label.style.cursor = "pointer";
+    label.style.flex = "1";
+
+    optionDiv.appendChild(checkbox);
+    optionDiv.appendChild(label);
+    optionsContainer.appendChild(optionDiv);
   });
+
+  // Update display and carrier
+  updateProcessJobsDisplay();
+  updateCarrierDisplay();
+}
+
+function updateProcessJobsDisplay() {
+  const checkboxes = document.querySelectorAll(
+    '#processJobsOptions input[type="checkbox"]:checked'
+  );
+  const display = document.getElementById("processJobsDisplay");
+
+  if (checkboxes.length === 0) {
+    display.textContent = "Select process jobs...";
+  } else {
+    const selected = Array.from(checkboxes).map((cb) => cb.value);
+    display.textContent = selected.join(", ");
+  }
 }
 
 function updateCarrierDisplay() {
-  const processJobsSelect = document.getElementById("processJobs");
+  const checkboxes = document.querySelectorAll(
+    '#processJobsOptions input[type="checkbox"]:checked'
+  );
   const carrierDisplay = document.getElementById("carrierDisplay");
 
-  // Get all selected options
-  const selectedOptions = Array.from(processJobsSelect.selectedOptions);
-
-  if (selectedOptions.length === 0) {
+  if (checkboxes.length === 0) {
     carrierDisplay.textContent = "-";
     return;
   }
 
+  // Get job IDs from checked checkboxes
+  const jobIds = Array.from(checkboxes).map((cb) => cb.value);
+
   // Get the carrier values for selected jobs
-  const carriers = selectedOptions
-    .map((option) => {
-      const jobId = option.value;
+  const carriers = jobIds
+    .map((jobId) => {
       const job = jobs.find((j) => j.id === jobId);
       return job ? job.carrier : null;
     })
@@ -1215,9 +1280,155 @@ function updateCarrierDisplay() {
   }
 }
 
+function updateMaterialRedirection() {
+  const checkboxes = document.querySelectorAll(
+    '#processJobsOptions input[type="checkbox"]:checked'
+  );
+  const container = document.getElementById("materialRedirectionTable");
+
+  if (checkboxes.length === 0) {
+    container.innerHTML =
+      "<p style='color: #999; padding: 10px;'>Select process jobs to see material redirection options</p>";
+    return;
+  }
+
+  // Get job IDs from checked checkboxes
+  const jobIds = Array.from(checkboxes).map((cb) => cb.value);
+
+  // Collect all slots from selected jobs
+  const allSlots = [];
+  jobIds.forEach((jobId) => {
+    const job = jobs.find((j) => j.id === jobId);
+    if (job && job.slots && job.slots.length > 0) {
+      job.slots.forEach((slot) => {
+        allSlots.push({
+          label: `${slot.carrierId} - Slot ${slot.slotNumber}`,
+          value: `${slot.carrierId}-${slot.slotNumber}`,
+        });
+      });
+    }
+  });
+
+  if (allSlots.length === 0) {
+    container.innerHTML =
+      "<p style='color: #999; padding: 10px;'>Selected process jobs have no slot data</p>";
+    return;
+  }
+
+  // Generate rows with dropdowns
+  let html = '<div class="mtl-spec-row">';
+  html += '<div class="mtl-spec-column">';
+  html += '<label class="mtl-label">src</label>';
+
+  allSlots.forEach((defaultSlot, index) => {
+    html += '<select class="mtl-select mtl-src-select">';
+    html += '<option value="">Select...</option>';
+    allSlots.forEach((slot) => {
+      const selected = slot.value === defaultSlot.value ? " selected" : "";
+      html += `<option value="${slot.value}"${selected}>${slot.label}</option>`;
+    });
+    html += "</select>";
+  });
+
+  html += "</div>";
+  html += '<div class="mtl-spec-column">';
+  html += '<label class="mtl-label">des</label>';
+
+  allSlots.forEach((defaultSlot, index) => {
+    html += '<select class="mtl-select mtl-des-select">';
+    html += '<option value="">Select...</option>';
+    allSlots.forEach((slot) => {
+      const selected = slot.value === defaultSlot.value ? " selected" : "";
+      html += `<option value="${slot.value}"${selected}>${slot.label}</option>`;
+    });
+    html += "</select>";
+  });
+
+  html += "</div>";
+  html += "</div>";
+
+  container.innerHTML = html;
+}
+
 function hideCreateControlJobView() {
   document.getElementById("createControlJobView").classList.add("hidden");
   document.getElementById("table-container").style.display = "block";
+}
+
+function createControlJob() {
+  // Get form values
+  const controlJobId = document.getElementById("controlJobId").value.trim();
+
+  if (!controlJobId) {
+    alert("Please enter a Control Job ID");
+    return;
+  }
+
+  // Get selected process jobs
+  const checkboxes = document.querySelectorAll(
+    '#processJobsOptions input[type="checkbox"]:checked'
+  );
+  const selectedProcessJobs = Array.from(checkboxes).map((cb) => cb.value);
+
+  if (selectedProcessJobs.length === 0) {
+    alert("Please select at least one process job");
+    return;
+  }
+
+  // Get carriers from selected process jobs
+  const carriers = selectedProcessJobs
+    .map((jobId) => {
+      const job = jobs.find((j) => j.id === jobId);
+      return job ? job.carrier : null;
+    })
+    .filter((carrier) => carrier !== null);
+
+  // Get other form values
+  const dataCollectionPlan =
+    document.getElementById("dataCollectionPlan").value;
+  const processingOrderMgmt = document.getElementById(
+    "processingOrderMgmt"
+  ).value;
+  const pauseEvents = document.getElementById("pauseEventsControl").value;
+
+  const startMethodCheckbox = document.querySelector(
+    'input[name="controlStartMethod"]:checked'
+  );
+  const startMethod = startMethodCheckbox ? startMethodCheckbox.value : "";
+
+  // Create the control job
+  const newControlJob = {
+    id: controlJobId,
+    state: "Selected",
+    startMethod: startMethod || "Manual",
+    controlOrder: processingOrderMgmt || "",
+    recipeId: "-",
+    carrier: carriers.join(", "),
+    parentId: null,
+  };
+
+  // Add control job to jobs array
+  jobs.push(newControlJob);
+
+  // Update parent IDs for selected process jobs
+  selectedProcessJobs.forEach((jobId) => {
+    const job = jobs.find((j) => j.id === jobId);
+    if (job) {
+      job.parentId = controlJobId;
+    }
+  });
+
+  // Automatically expand the new control job to show its children
+  expandedRows.add(controlJobId);
+
+  // Clear selected jobs
+  selectedJobs.clear();
+
+  // Re-render the table
+  renderTable();
+
+  // Hide the form and show the table
+  hideCreateControlJobView();
 }
 
 let slotTableCounter = 0;
