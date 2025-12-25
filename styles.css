@@ -136,6 +136,31 @@ header {
   margin-right: 8px;
 }
 
+.filter-option-all {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 4px;
+}
+
+.filter-option-all:hover {
+  background-color: #e9ecef;
+}
+
+.filter-divider {
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 8px 0;
+}
+
+.filter-group-label {
+  padding: 8px 12px 4px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .hidden {
   display: none;
 }

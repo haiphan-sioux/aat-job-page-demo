@@ -2,7 +2,7 @@
 let jobs = [
   {
     id: "CJ-1",
-    state: "Selected",
+    state: "SELECTED",
     startMethod: "Manual",
     controlOrder: "LIST",
     recipeId: "-",
@@ -11,7 +11,7 @@ let jobs = [
   },
   {
     id: "PJ-1",
-    state: "Queued Pooled",
+    state: "QUEUED POOLED",
     startMethod: "Manual",
     controlOrder: "",
     recipeId: "Recipe 1",
@@ -20,7 +20,7 @@ let jobs = [
   },
   {
     id: "PJ-2",
-    state: "Queued Pooled",
+    state: "QUEUED POOLED",
     startMethod: "Manual",
     controlOrder: "",
     recipeId: "Recipe 2",
@@ -29,7 +29,7 @@ let jobs = [
   },
   {
     id: "PJ-3",
-    state: "Queued Pooled",
+    state: "QUEUED POOLED",
     startMethod: "Auto",
     controlOrder: "",
     recipeId: "-",
@@ -656,8 +656,21 @@ function initializeEventListeners() {
   document.querySelectorAll(".job-filter-checkbox").forEach((checkbox) => {
     checkbox.addEventListener("change", function () {
       renderTable();
+      updateJobFilterAllCheckbox();
     });
   });
+
+  // Job filter "All" checkbox
+  const jobFilterAll = document.getElementById("jobFilterAll");
+  if (jobFilterAll) {
+    jobFilterAll.addEventListener("change", function () {
+      const isChecked = this.checked;
+      document.querySelectorAll(".job-filter-checkbox").forEach((checkbox) => {
+        checkbox.checked = isChecked;
+      });
+      renderTable();
+    });
+  }
 
   // Material filter checkboxes
   document.querySelectorAll(".material-filter-checkbox").forEach((checkbox) => {
@@ -1030,6 +1043,17 @@ function renderMaterialView() {
   });
 }
 
+function updateJobFilterAllCheckbox() {
+  const jobFilterAll = document.getElementById("jobFilterAll");
+  if (jobFilterAll) {
+    const allCheckboxes = document.querySelectorAll(".job-filter-checkbox");
+    const checkedCheckboxes = document.querySelectorAll(
+      ".job-filter-checkbox:checked"
+    );
+    jobFilterAll.checked = allCheckboxes.length === checkedCheckboxes.length;
+  }
+}
+
 function toggleExpand(jobId) {
   if (expandedRows.has(jobId)) {
     expandedRows.delete(jobId);
@@ -1152,7 +1176,7 @@ function createProcessJob() {
   // Create new job object
   const newJob = {
     id: processJobId,
-    state: "Queued Pooled",
+    state: "QUEUED POOLED",
     startMethod: startMethod,
     controlOrder: "",
     recipeId: recipe,
@@ -1399,7 +1423,7 @@ function createControlJob() {
   // Create the control job
   const newControlJob = {
     id: controlJobId,
-    state: "Selected",
+    state: "SELECTED",
     startMethod: startMethod || "Manual",
     controlOrder: processingOrderMgmt || "",
     recipeId: "-",

@@ -25,41 +25,144 @@
             <div id="filterDropdown" class="filter-dropdown hidden">
               <!-- Job View Filters -->
               <div id="jobFilters">
+                <label class="filter-option filter-option-all">
+                  <input type="checkbox" id="jobFilterAll" checked />
+                  <strong>All</strong>
+                </label>
+                <div class="filter-divider"></div>
+
+                <!-- Control Job Group -->
+                <div class="filter-group-label">Control Job</div>
                 <label class="filter-option">
                   <input
                     type="checkbox"
-                    value="Queued Pooled"
+                    value="QUEUED"
                     class="job-filter-checkbox"
                     checked
                   />
-                  Queued Pooled
+                  QUEUED
                 </label>
                 <label class="filter-option">
                   <input
                     type="checkbox"
-                    value="Selected"
+                    value="SELECTED"
                     class="job-filter-checkbox"
                     checked
                   />
-                  Selected
+                  SELECTED
                 </label>
                 <label class="filter-option">
                   <input
                     type="checkbox"
-                    value="Executing"
+                    value="WAITING FOR START"
                     class="job-filter-checkbox"
                     checked
                   />
-                  Executing
+                  WAITING FOR START
                 </label>
                 <label class="filter-option">
                   <input
                     type="checkbox"
-                    value="Completed"
+                    value="EXECUTING"
                     class="job-filter-checkbox"
                     checked
                   />
-                  Completed
+                  EXECUTING
+                </label>
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    value="PAUSED"
+                    class="job-filter-checkbox"
+                    checked
+                  />
+                  PAUSED
+                </label>
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    value="COMPLETED"
+                    class="job-filter-checkbox"
+                    checked
+                  />
+                  COMPLETED
+                </label>
+
+                <div class="filter-divider"></div>
+
+                <!-- Process Job Group -->
+                <div class="filter-group-label">Process Job</div>
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    value="QUEUED POOLED"
+                    class="job-filter-checkbox"
+                    checked
+                  />
+                  QUEUED POOLED
+                </label>
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    value="SETTING UP"
+                    class="job-filter-checkbox"
+                    checked
+                  />
+                  SETTING UP
+                </label>
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    value="WAITING FOR START"
+                    class="job-filter-checkbox"
+                    checked
+                  />
+                  WAITING FOR START
+                </label>
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    value="PROCESSING"
+                    class="job-filter-checkbox"
+                    checked
+                  />
+                  PROCESSING
+                </label>
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    value="PAUSED"
+                    class="job-filter-checkbox"
+                    checked
+                  />
+                  PAUSED
+                </label>
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    value="PROCESS COMPLETE"
+                    class="job-filter-checkbox"
+                    checked
+                  />
+                  PROCESS COMPLETE
+                </label>
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    value="STOPPED"
+                    class="job-filter-checkbox"
+                    checked
+                  />
+                  STOPPED
+                </label>
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    value="ABORTED"
+                    class="job-filter-checkbox"
+                    checked
+                  />
+                  ABORTED
                 </label>
               </div>
               <!-- Material View Filters -->
