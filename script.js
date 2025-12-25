@@ -857,27 +857,27 @@ function renderJobView() {
 
   tbody.innerHTML = "";
 
-  // Sort jobs so parents appear before their children
-  const sortedJobs = [...filteredJobs].sort((a, b) => {
-    // If both have no parent, maintain original order
-    if (!a.parentId && !b.parentId) return 0;
+  // Sort jobs so parents appear immediately before their children
+  const sortedJobs = [];
+  const processedIds = new Set();
 
-    // If a has no parent but b does, a comes first
-    if (!a.parentId && b.parentId) return -1;
+  filteredJobs.forEach((job) => {
+    // Skip if already processed (as a child)
+    if (processedIds.has(job.id)) return;
 
-    // If b has no parent but a does, b comes first
-    if (a.parentId && !b.parentId) return 1;
+    // Add parent job (or standalone job without parent)
+    if (!job.parentId) {
+      sortedJobs.push(job);
+      processedIds.add(job.id);
 
-    // If both have parents, group by parent
-    if (a.parentId !== b.parentId) {
-      // Find parent indices in original array
-      const aParentIndex = filteredJobs.findIndex((j) => j.id === a.parentId);
-      const bParentIndex = filteredJobs.findIndex((j) => j.id === b.parentId);
-      return aParentIndex - bParentIndex;
+      // Immediately add all children of this parent
+      filteredJobs.forEach((childJob) => {
+        if (childJob.parentId === job.id && !processedIds.has(childJob.id)) {
+          sortedJobs.push(childJob);
+          processedIds.add(childJob.id);
+        }
+      });
     }
-
-    // Same parent, maintain order
-    return 0;
   });
 
   // Filter to show only visible jobs (considering parent expansion)
