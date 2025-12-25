@@ -842,6 +842,58 @@ function renderTable() {
   }
 }
 
+// Helper function to check if a job matches the selected filter categories
+function jobMatchesFilter(job, selectedCategories) {
+  if (selectedCategories.length === 0) return true;
+
+  const isProcessJob = job.id.startsWith("PJ-");
+  const isControlJob = job.id.startsWith("CJ-");
+
+  // Define state mappings for each category
+  const queuedStates = {
+    processJob: ["QUEUED POOLED"],
+    controlJob: ["QUEUED"],
+  };
+
+  const activeStates = {
+    processJob: ["SETTING UP", "WAITING FOR START", "PROCESSING", "PAUSED"],
+    controlJob: ["SELECTED", "WAITING FOR START", "EXECUTING", "PAUSED"],
+  };
+
+  const postActiveStates = {
+    processJob: ["PROCESS COMPLETE", "ABORTED", "STOPPED"],
+    controlJob: ["COMPLETED"],
+  };
+
+  // Check if job matches any selected category
+  for (const category of selectedCategories) {
+    if (category === "QUEUED") {
+      if (
+        (isProcessJob && queuedStates.processJob.includes(job.state)) ||
+        (isControlJob && queuedStates.controlJob.includes(job.state))
+      ) {
+        return true;
+      }
+    } else if (category === "ACTIVE") {
+      if (
+        (isProcessJob && activeStates.processJob.includes(job.state)) ||
+        (isControlJob && activeStates.controlJob.includes(job.state))
+      ) {
+        return true;
+      }
+    } else if (category === "POST ACTIVE") {
+      if (
+        (isProcessJob && postActiveStates.processJob.includes(job.state)) ||
+        (isControlJob && postActiveStates.controlJob.includes(job.state))
+      ) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
+
 function renderJobView() {
   const tbody = document.getElementById("jobsTableBody");
   const thead = document.querySelector("#jobsTable thead tr");
@@ -861,15 +913,15 @@ function renderJobView() {
 
   let filteredJobs = jobs;
 
-  // Get selected job states from checkboxes
-  const selectedStates = Array.from(
+  // Get selected filter categories from checkboxes
+  const selectedCategories = Array.from(
     document.querySelectorAll(".job-filter-checkbox:checked")
   ).map((cb) => cb.value);
 
-  // Filter by selected states
-  if (selectedStates.length > 0) {
+  // Filter by selected categories
+  if (selectedCategories.length > 0) {
     filteredJobs = filteredJobs.filter((job) =>
-      selectedStates.includes(job.state)
+      jobMatchesFilter(job, selectedCategories)
     );
   }
 
