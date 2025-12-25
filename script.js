@@ -965,6 +965,16 @@ function renderJobView() {
   });
 }
 
+// Helper function to get Load Port from Material/Carrier ID
+function getLoadPort(materialId) {
+  // Extract carrier number from materialId (e.g., "Carrier 1" -> "1")
+  const match = materialId.match(/Carrier\s+(\d+)/i);
+  if (match && match[1]) {
+    return `Load Port ${match[1]}`;
+  }
+  return "-";
+}
+
 function renderMaterialView() {
   const tbody = document.getElementById("jobsTableBody");
   const thead = document.querySelector("#jobsTable thead tr");
@@ -974,6 +984,7 @@ function renderMaterialView() {
   thead.innerHTML = `
     <th class="expand-col"></th>
     <th>Material ID</th>
+    <th>Load Port</th>
     <th>Substrate ID</th>
     <th>Substrate State</th>
     <th>Recipe</th>
@@ -1013,6 +1024,7 @@ function renderMaterialView() {
               ${expandIcon}
             </td>
             <td><a href="#" class="job-link">${material.id}</a></td>
+            <td>${getLoadPort(material.id)}</td>
             <td>${material.substrateId}</td>
             <td>${
               material.substrateState !== "-"
@@ -1041,6 +1053,7 @@ function renderMaterialView() {
                 <td><span class='indent'></span><a href="#" class="job-link">${
                   slot.id
                 }</a></td>
+                <td></td>
                 <td>${slot.substrateId}</td>
                 <td>${
                   slot.substrateState !== "-"
