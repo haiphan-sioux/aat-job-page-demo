@@ -947,8 +947,8 @@ function renderMaterialView() {
     <th class="expand-col"></th>
     <th>Material ID</th>
     <th>Substrate ID</th>
-    <th>Recipe</th>
     <th>Substrate State</th>
+    <th>Recipe</th>
     <th>Jobs</th>
   `;
 
@@ -986,12 +986,12 @@ function renderMaterialView() {
             </td>
             <td><a href="#" class="job-link">${material.id}</a></td>
             <td>${material.substrateId}</td>
-            <td><span class="recipe-text">${material.recipe}</span></td>
             <td>${
               material.substrateState !== "-"
                 ? `<span class="state-badge state-warning">${material.substrateState}</span>`
                 : material.substrateState
             }</td>
+            <td><span class="recipe-text">${material.recipe}</span></td>
             <td>${material.jobs}</td>
         `;
 
@@ -1014,12 +1014,12 @@ function renderMaterialView() {
                   slot.id
                 }</a></td>
                 <td>${slot.substrateId}</td>
-                <td><span class="recipe-text">${slot.recipe}</span></td>
                 <td>${
                   slot.substrateState !== "-"
                     ? `<span class="state-badge state-warning">${slot.substrateState}</span>`
                     : slot.substrateState
                 }</td>
+                <td><span class="recipe-text">${slot.recipe}</span></td>
                 <td>${slot.jobs}</td>
             `;
 
