@@ -1156,6 +1156,13 @@ function showCreateJobView() {
 function hideCreateJobView() {
   document.getElementById("createJobView").classList.add("hidden");
   document.getElementById("table-container").style.display = "block";
+
+  // Reset edit mode
+  editingJobId = null;
+  document.querySelector("#createJobView .form-header h2").textContent =
+    "Create Process Job";
+  document.getElementById("createJobBtn").textContent = "Create";
+  document.getElementById("processJobId").readOnly = false;
 }
 
 function createProcessJob() {
@@ -1202,20 +1209,51 @@ function createProcessJob() {
     });
   });
 
-  // Create new job object
-  const newJob = {
-    id: processJobId,
-    state: "QUEUED POOLED",
-    startMethod: startMethod,
-    controlOrder: "",
-    recipeId: recipe,
-    carrier: carriers || "-",
-    parentId: null,
-    slots: slots,
-  };
+  // Get pause events
+  const pauseEvents = document.getElementById("pauseEvents").value || "";
 
-  // Add to jobs array
-  jobs.push(newJob);
+  // Get recipe variable tuning
+  const variableTuning = [];
+  document.querySelectorAll("#variableTuning .tuning-row").forEach((row) => {
+    const nameSelect = row.querySelector(".tuning-select");
+    const valueInput = row.querySelector(".tuning-input");
+    if (nameSelect && valueInput && nameSelect.value && valueInput.value) {
+      variableTuning.push({
+        name: nameSelect.value,
+        value: valueInput.value,
+      });
+    }
+  });
+
+  if (editingJobId) {
+    // Update existing job
+    const job = jobs.find((j) => j.id === editingJobId);
+    if (job) {
+      job.startMethod = startMethod;
+      job.recipeId = recipe;
+      job.carrier = carriers || "-";
+      job.slots = slots;
+      job.pauseEvents = pauseEvents;
+      job.variableTuning = variableTuning;
+    }
+  } else {
+    // Create new job object
+    const newJob = {
+      id: processJobId,
+      state: "QUEUED POOLED",
+      startMethod: startMethod,
+      controlOrder: "",
+      recipeId: recipe,
+      carrier: carriers || "-",
+      parentId: null,
+      slots: slots,
+      pauseEvents: pauseEvents,
+      variableTuning: variableTuning,
+    };
+
+    // Add to jobs array
+    jobs.push(newJob);
+  }
 
   // Clear selected jobs
   selectedJobs.clear();
@@ -1406,6 +1444,13 @@ function updateMaterialRedirection() {
 function hideCreateControlJobView() {
   document.getElementById("createControlJobView").classList.add("hidden");
   document.getElementById("table-container").style.display = "block";
+
+  // Reset edit mode
+  editingJobId = null;
+  document.querySelector("#createControlJobView .form-header h2").textContent =
+    "Create Control Job";
+  document.getElementById("createControlBtn").textContent = "Create";
+  document.getElementById("controlJobId").readOnly = false;
 }
 
 function createControlJob() {
@@ -1438,41 +1483,70 @@ function createControlJob() {
 
   // Get other form values
   const dataCollectionPlan =
-    document.getElementById("dataCollectionPlan").value;
+    document.getElementById("dataCollectionPlan").value || "";
   const processingOrderMgmt = document.getElementById(
     "processingOrderMgmt"
   ).value;
-  const pauseEvents = document.getElementById("pauseEventsControl").value;
+  const pauseEvents = document.getElementById("pauseEventsControl").value || "";
 
   const startMethodCheckbox = document.querySelector(
     'input[name="controlStartMethod"]:checked'
   );
   const startMethod = startMethodCheckbox ? startMethodCheckbox.value : "";
 
-  // Create the control job
-  const newControlJob = {
-    id: controlJobId,
-    state: "SELECTED",
-    startMethod: startMethod || "Manual",
-    controlOrder: processingOrderMgmt || "",
-    recipeId: "-",
-    carrier: carriers.join(", "),
-    parentId: null,
-  };
-
-  // Add control job to jobs array
-  jobs.push(newControlJob);
-
-  // Update parent IDs for selected process jobs
-  selectedProcessJobs.forEach((jobId) => {
-    const job = jobs.find((j) => j.id === jobId);
+  if (editingJobId) {
+    // Update existing control job
+    const job = jobs.find((j) => j.id === editingJobId);
     if (job) {
-      job.parentId = controlJobId;
+      job.startMethod = startMethod || "Manual";
+      job.controlOrder = processingOrderMgmt || "";
+      job.carrier = carriers.join(", ");
+      job.dataCollectionPlan = dataCollectionPlan;
+      job.pauseEvents = pauseEvents;
     }
-  });
 
-  // Automatically expand the new control job to show its children
-  expandedRows.add(controlJobId);
+    // Clear old parent relationships
+    jobs.forEach((j) => {
+      if (j.parentId === editingJobId) {
+        j.parentId = null;
+      }
+    });
+
+    // Update parent IDs for selected process jobs
+    selectedProcessJobs.forEach((jobId) => {
+      const childJob = jobs.find((j) => j.id === jobId);
+      if (childJob) {
+        childJob.parentId = editingJobId;
+      }
+    });
+  } else {
+    // Create the control job
+    const newControlJob = {
+      id: controlJobId,
+      state: "SELECTED",
+      startMethod: startMethod || "Manual",
+      controlOrder: processingOrderMgmt || "",
+      recipeId: "-",
+      carrier: carriers.join(", "),
+      parentId: null,
+      dataCollectionPlan: dataCollectionPlan,
+      pauseEvents: pauseEvents,
+    };
+
+    // Add control job to jobs array
+    jobs.push(newControlJob);
+
+    // Update parent IDs for selected process jobs
+    selectedProcessJobs.forEach((jobId) => {
+      const job = jobs.find((j) => j.id === jobId);
+      if (job) {
+        job.parentId = controlJobId;
+      }
+    });
+
+    // Automatically expand the new control job to show its children
+    expandedRows.add(controlJobId);
+  }
 
   // Clear selected jobs
   selectedJobs.clear();
@@ -1673,19 +1747,171 @@ function editJob(jobId) {
   if (!job) return;
 
   editingJobId = jobId;
-  document.getElementById("modalTitle").textContent = "Edit Job";
-  document.getElementById("jobId").value = job.id;
-  document.getElementById("jobState").value = job.state;
-  document.getElementById("jobPriority").value = job.startMethod;
-  document.getElementById("jobList").value = job.controlOrder;
-  document.getElementById("jobRecipe").value = job.recipeId;
-  document.getElementById("jobCarrier").value = job.carrier;
-  document.getElementById("jobPriority").value = job.priority;
-  document.getElementById("jobList").value = job.processList;
-  document.getElementById("jobRecipe").value = job.recipe;
-  document.getElementById("jobCarrier").value = job.carrier;
 
-  document.getElementById("jobModal").style.display = "block";
+  // Check if it's a Process Job or Control Job
+  if (job.id.startsWith("PJ-")) {
+    // Edit Process Job
+    document.getElementById("createJobView").classList.remove("hidden");
+    document.getElementById("createControlJobView").classList.add("hidden");
+    document.getElementById("table-container").style.display = "none";
+
+    // Update form title and button
+    document.querySelector("#createJobView .form-header h2").textContent =
+      "Edit Process Job";
+    document.getElementById("createJobBtn").textContent = "Update";
+
+    // Populate form fields
+    document.getElementById("processJobId").value = job.id;
+    document.getElementById("processJobId").readOnly = true; // Don't allow ID changes
+
+    // Populate recipe
+    document.getElementById("recipe").value = job.recipeId || "";
+
+    // Populate start method
+    document
+      .querySelectorAll('input[name="startMethod"]')
+      .forEach((cb) => (cb.checked = false));
+    if (job.startMethod) {
+      const checkbox = document.querySelector(
+        `input[name="startMethod"][value="${job.startMethod}"]`
+      );
+      if (checkbox) checkbox.checked = true;
+    }
+
+    // Populate pause events
+    document.getElementById("pauseEvents").value = job.pauseEvents || "";
+
+    // Populate recipe variable tuning
+    const variableTuningContainer = document.getElementById("variableTuning");
+    // Remove all existing tuning rows except the add button
+    const existingRows =
+      variableTuningContainer.querySelectorAll(".tuning-row");
+    existingRows.forEach((row) => row.remove());
+
+    if (job.variableTuning && job.variableTuning.length > 0) {
+      job.variableTuning.forEach((tuning) => {
+        const tuningRow = document.createElement("div");
+        tuningRow.className = "tuning-row";
+        tuningRow.innerHTML = `
+          <select class="tuning-select">
+            <option value="">Select name...</option>
+            <option value="Variable 1" ${
+              tuning.name === "Variable 1" ? "selected" : ""
+            }>Variable 1</option>
+            <option value="Variable 2" ${
+              tuning.name === "Variable 2" ? "selected" : ""
+            }>Variable 2</option>
+            <option value="Variable 3" ${
+              tuning.name === "Variable 3" ? "selected" : ""
+            }>Variable 3</option>
+          </select>
+          <span>:</span>
+          <input type="text" placeholder="value" class="tuning-input" value="${
+            tuning.value
+          }" />
+        `;
+        variableTuningContainer.insertBefore(
+          tuningRow,
+          variableTuningContainer.querySelector("#addTuningBtn")
+        );
+      });
+    } else {
+      // Add one empty row if no tuning data exists
+      const tuningRow = document.createElement("div");
+      tuningRow.className = "tuning-row";
+      tuningRow.innerHTML = `
+        <select class="tuning-select">
+          <option value="">Select name...</option>
+          <option value="Variable 1">Variable 1</option>
+          <option value="Variable 2">Variable 2</option>
+          <option value="Variable 3">Variable 3</option>
+        </select>
+        <span>:</span>
+        <input type="text" placeholder="value" class="tuning-input" />
+      `;
+      variableTuningContainer.insertBefore(
+        tuningRow,
+        variableTuningContainer.querySelector("#addTuningBtn")
+      );
+    }
+
+    // Populate slots
+    document.getElementById("slotTablesContainer").innerHTML = "";
+    if (job.slots && job.slots.length > 0) {
+      job.slots.forEach((slot) => {
+        addSlotTable();
+        const slotTables = document.querySelectorAll(".slot-table");
+        const lastTable = slotTables[slotTables.length - 1];
+
+        // Find the carrier input and set value
+        const carrierInput = lastTable.querySelector(
+          ".slot-table-cell input[type='text']"
+        );
+        if (carrierInput) {
+          carrierInput.value = slot.carrierId;
+        }
+
+        // Check the slot checkbox
+        const slotCell = lastTable.querySelector(
+          `.slot-table-cell:has(input[type="checkbox"][value="${slot.slotNumber}"])`
+        );
+        if (slotCell) {
+          const checkbox = slotCell.querySelector('input[type="checkbox"]');
+          if (checkbox) checkbox.checked = true;
+        }
+      });
+    } else {
+      addSlotTable();
+    }
+  } else if (job.id.startsWith("CJ-")) {
+    // Edit Control Job
+    document.getElementById("createControlJobView").classList.remove("hidden");
+    document.getElementById("createJobView").classList.add("hidden");
+    document.getElementById("table-container").style.display = "none";
+
+    // Update form title and button
+    document.querySelector(
+      "#createControlJobView .form-header h2"
+    ).textContent = "Edit Control Job";
+    document.getElementById("createControlBtn").textContent = "Update";
+
+    // Populate form fields
+    document.getElementById("controlJobId").value = job.id;
+    document.getElementById("controlJobId").readOnly = true; // Don't allow ID changes
+
+    // Get child process jobs
+    const childJobs = jobs
+      .filter((j) => j.parentId === job.id)
+      .map((j) => j.id);
+
+    // Populate process jobs dropdown with pre-selected children
+    populateProcessJobsDropdown(childJobs);
+
+    // Populate data collection plan
+    document.getElementById("dataCollectionPlan").value =
+      job.dataCollectionPlan || "";
+
+    // Populate processing order management
+    document.getElementById("processingOrderMgmt").value =
+      job.controlOrder || "";
+
+    // Populate start method
+    document
+      .querySelectorAll('input[name="controlStartMethod"]')
+      .forEach((cb) => (cb.checked = false));
+    if (job.startMethod) {
+      const checkbox = document.querySelector(
+        `input[name="controlStartMethod"][value="${job.startMethod}"]`
+      );
+      if (checkbox) checkbox.checked = true;
+    }
+
+    // Populate pause events
+    document.getElementById("pauseEventsControl").value = job.pauseEvents || "";
+
+    // Update material redirection
+    updateMaterialRedirection();
+  }
 }
 
 function deleteJob(jobId) {
