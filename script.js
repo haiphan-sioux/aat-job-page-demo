@@ -676,8 +676,23 @@ function initializeEventListeners() {
   document.querySelectorAll(".material-filter-checkbox").forEach((checkbox) => {
     checkbox.addEventListener("change", function () {
       renderTable();
+      updateMaterialFilterAllCheckbox();
     });
   });
+
+  // Material filter "All" checkbox
+  const materialFilterAll = document.getElementById("materialFilterAll");
+  if (materialFilterAll) {
+    materialFilterAll.addEventListener("change", function () {
+      const isChecked = this.checked;
+      document
+        .querySelectorAll(".material-filter-checkbox")
+        .forEach((checkbox) => {
+          checkbox.checked = isChecked;
+        });
+      renderTable();
+    });
+  }
 
   // Action buttons
   document
@@ -1051,6 +1066,20 @@ function updateJobFilterAllCheckbox() {
       ".job-filter-checkbox:checked"
     );
     jobFilterAll.checked = allCheckboxes.length === checkedCheckboxes.length;
+  }
+}
+
+function updateMaterialFilterAllCheckbox() {
+  const materialFilterAll = document.getElementById("materialFilterAll");
+  if (materialFilterAll) {
+    const allCheckboxes = document.querySelectorAll(
+      ".material-filter-checkbox"
+    );
+    const checkedCheckboxes = document.querySelectorAll(
+      ".material-filter-checkbox:checked"
+    );
+    materialFilterAll.checked =
+      allCheckboxes.length === checkedCheckboxes.length;
   }
 }
 

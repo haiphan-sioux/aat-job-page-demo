@@ -167,6 +167,12 @@
               </div>
               <!-- Material View Filters -->
               <div id="materialFilters" class="hidden">
+                <label class="filter-option filter-option-all">
+                  <input type="checkbox" id="materialFilterAll" checked />
+                  <strong>All</strong>
+                </label>
+                <div class="filter-divider"></div>
+
                 <label class="filter-option">
                   <input
                     type="checkbox"
@@ -193,6 +199,42 @@
                     checked
                   />
                   PROCESSED
+                </label>
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    value="ABORTED"
+                    class="material-filter-checkbox"
+                    checked
+                  />
+                  ABORTED
+                </label>
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    value="REJECTED"
+                    class="material-filter-checkbox"
+                    checked
+                  />
+                  REJECTED
+                </label>
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    value="LOST"
+                    class="material-filter-checkbox"
+                    checked
+                  />
+                  LOST
+                </label>
+                <label class="filter-option">
+                  <input
+                    type="checkbox"
+                    value="STOPPED"
+                    class="material-filter-checkbox"
+                    checked
+                  />
+                  STOPPED
                 </label>
                 <label class="filter-option">
                   <input
